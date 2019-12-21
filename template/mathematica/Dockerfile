@@ -9,7 +9,7 @@ COPY --from=watchdog /fwatchdog /usr/bin/fwatchdog
 RUN chmod +x /usr/bin/fwatchdog
 # RUN apk --no-cache add ca-certificates ${ADDITIONAL_PACKAGE}
 
-RUN wolframscript -activate -username mavusogiftntokozo@gmail.com -password Gm78180427
+RUN wolframscript -activate -username <your-username> -password <your-password>
 RUN wolframscript -activate
 # Add non root user
 # RUN addgroup -S app && adduser app -S -G app
