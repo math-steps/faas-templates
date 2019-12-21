@@ -10,7 +10,7 @@ a particular problem.
 1. Create and change into a new folder
 
 1. Clone the templates with: 
-`faas template pull https://github.com/superuser-chi/faas-templates.git`
+`faas template pull https://github.com/math-recon/faas-templates.git`
 
 1. Create a new function with: 
 
