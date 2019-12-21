@@ -34,7 +34,7 @@ a particular problem.
         catch[
             Do[
                 If[Not[KeyExistsQ[params, expectedParams[x]]],
-                    errors = Append[errors, "missing " <> ToString[x] -> ToString[x] <> " is expected as a parameter"]
+                    errors = Append[errors, "missing " <> ToString[expectedParams] -> ToString[expectedParams] <> " is expected as a parameter"]
                 ]
             , 
                 {x, Keys[expectedParams]}
