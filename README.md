@@ -26,8 +26,9 @@ a particular problem.
 
         ```mathematica
         #!/usr/bin/env wolframscript -fun
-
+        (* read parameters from .json file*)
         params = Import["function/params.json", "RawJSON"]
+        (* expectedParams contain the arguments expected by your function*)
         expectedParams = <| 1 -> "n"|>
         errors = <||>
         catch[
@@ -48,5 +49,11 @@ a particular problem.
         ]
         ```
     - `code.wls` (Put your code logic here)
+
+        ```mathematica
+            #!/usr/bin/env wolframscript -fun
+            (* read parameters from .json file*)
+            params = Import["function/params.json", "RawJSON"]  
+        ```
     
 1. Check the template builds with `faas build`
