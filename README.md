@@ -9,15 +9,44 @@ a particular problem.
 
 1. Create and change into a new folder
 
-2. Clone the templates with: 
+1. Clone the templates with: 
 `faas template pull https://github.com/superuser-chi/faas-templates.git`
 
-3. Create a new function with: 
+1. Create a new function with: 
 
     faas new --lang mathematica `<function-name>`
 
-4. Change `<function-name>`.yml to stack.yml
+1. Change `<function-name>`.yml to stack.yml
 
-5. Change `<function-name>` folder to function/
+1. Change `<function-name>` folder to function/
  
-6. Check the template builds with `faas build`
+1.  add the following files in the `function folder`
+ 
+    - `preprocess_params.wls` (put code to process parameters here)
+
+        ```mathematica
+        #!/usr/bin/env wolframscript -fun
+
+        params = Import["function/params.json", "RawJSON"]
+        expectedParams = <| 1 -> "n"|>
+        errors = <||>
+        catch[
+            Do[
+                If[Not[KeyExistsQ[params, expectedParams[x]]],
+                    errors = Append[errors, "missing " <> ToString[x] -> ToString[x] <> " is expected as a parameter"]
+                ]
+            , 
+                {x, Keys[expectedParams]}
+            ]
+        ]
+        If[errors == <||>,
+        (* Run code *)
+            True,
+        (* Print errors *)
+        Print[ExportString[errors, "RawJSON"]]
+            False
+        ]
+        ```
+    - `code.wls` (Put your code logic here)
+    
+1. Check the template builds with `faas build`
