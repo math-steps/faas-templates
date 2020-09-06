@@ -10,7 +10,7 @@ a particular problem.
 1. Create and change into a new folder
 
 1. Clone the templates with: 
-`faas template pull https://github.com/math-recon/faas-templates.git`
+`faas template pull https://github.com/math-steps/faas-templates.git`
 
 1. Create a new function with: 
 
@@ -55,5 +55,9 @@ a particular problem.
             (* read parameters from .json file*)
             params = Import["function/params.json", "RawJSON"]  
         ```
-    
+1. if you are planing to use the mathematica template then do the following:
+    1. Obtain a license from wolfram https://www.wolfram.com/engine/free-license/
+    1. Go to `template/mathematica` then open `activate.sh`.
+    1. Replace the username and password with your own license  credentials
+
 1. Check the template builds with `faas build`
