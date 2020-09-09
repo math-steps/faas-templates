@@ -16,6 +16,6 @@ Export["function/params.json", quotedParams]
 result = Get["function/preprocess_params.wls"]
 If[result,
    (* Run the mathematica code *)
-   Run["function/code.wls"],
+   Run["wolframscript -file function/code.wls"],
    Print["Halting process..."]
 ]
