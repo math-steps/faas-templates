@@ -25,11 +25,11 @@ a particular problem.
     - `preprocess_params.wls` (put code to process parameters here)
 
         ```mathematica
-        #!/usr/bin/env wolframscript -fun
+        #!/usr/bin/env wolframscript
         (* read parameters from .json file*)
         params = Import["function/params.json", "RawJSON"]
         (* expectedParams contain the arguments expected by your function*)
-        expectedParams = <| 1 -> "n"|>
+        expectedParams = <| "n" -> 1|>
         errors = <||>
         catch[
             Do[
